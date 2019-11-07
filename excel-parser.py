@@ -7,7 +7,7 @@ replace = input("\033[1m\033[96mReplacment string: \033[0m")
 
 for (root, dirs, files) in os.walk(DIRECTORY):
     for file in files:
-        if file.endswith(".xlsx"):
+        if file.endswith(".xlsx", ".xlsm", ".xltx", ".xltm"):
             path = os.path.join(root, file)
             print(
                 "\033[1m\033[96mOpening:\033[0m \033[1m\033[93m{0}\033[0m".format(path))
