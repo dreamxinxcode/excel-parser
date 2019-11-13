@@ -1,16 +1,25 @@
 import openpyxl
 import os
+from datetime import datetime
 
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 extentions = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
-target = input("\033[1m\033[96mTarget string: \033[0m")
-replace = input("\033[1m\033[96mPart Number replacment string: \033[0m")
+target = input("\033[1m\033[96mPart number: \033[0m")
+target_replacement = input("\033[1m\033[96mReplace with: \033[0m")
 
-supplier = input("\033[1m\033[96mSupplier string: \033[0m")
-supplier_replace = input("\033[1m\033[96mSupplier replacement string: \033[0m")
+supplier = input("\033[1m\033[96mSupplier: \033[0m")
+supplier_replacement = input("\033[1m\033[96mReplace with: \033[0m")
 
-price = input("\033[1m\033[96mPrice string: \033[0m")
+description = input("\033[1m\033[96mDescription: \033[0m")
+description_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+
+price = input("\033[1m\033[96mPrice: \033[0m")
+price_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+
+quantity = input("\033[1m\033[96mQuantity: \033[0m")
+quantity_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+
 
 for (root, dirs, files) in os.walk(DIRECTORY):
     for file in files:
@@ -20,40 +29,56 @@ for (root, dirs, files) in os.walk(DIRECTORY):
                 "\033[1m\033[96mOpening:\033[0m \033[1m\033[93m{0}\033[0m".format(file))
             wb = openpyxl.load_workbook(path, data_only=True)
             ws = wb.active
-            ws = 1
             target_in_wb = False
             for ws in wb.worksheets:
                 for row in ws.iter_rows():
                     for cell in row:
                         if (cell.value == target):
-                            print("\033[1m\033[92mTARGET STRING FOUND\033[0m")
+                            print("\033[1m\033[92mPART STRING FOUND\033[0m")
                             print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                target, replace, ws._current_row))
-                            cell.value = replace
+                                target, target_replacement, ws._current_row))
+                            cell.value = target_replacement
                             target_in_wb = True
                             for cell in row: 
                                 target_in_row = False
                                 #print(cell.value)
                                 if (cell.value == supplier):
-                                    print("\033[1m\033[92mTARGET STRING FOUND\033[0m")
+                                    print("\033[1m\033[92mSUPPLIER STRING FOUND\033[0m")
                                     print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                        supplier, supplier_replace, ws._current_row))
-                                    cell.value = supplier_replace
+                                        supplier, supplier_replacement, ws._current_row))
+                                    cell.value = supplier_replacement
+                                    target_in_row = True
+
+                                if (cell.value == description):
+                                    print("\033[1m\033[92mDESCRIPTION STRING FOUND\033[0m")
+                                    print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                        description, description_replacement, ws._current_row))
+                                    cell.value = description_replacement
                                     target_in_row = True
 
                                 if (cell.value == price):
-                                    print("hello")
+                                    print("\033[1m\033[92mPRICE STRING FOUND\033[0m")
+                                    print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                        price, price_replacement, ws._current_row))
+                                    cell.value = price_replacement
+                                    target_in_row = True
 
-                                    
+                                if (cell.value == quantity):
+                                    print("\033[1m\033[92mQUANTITY STRING FOUND\033[0m")
+                                    print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                        quantity, quantity_replacement, ws._current_row))
+                                    cell.value = quantity_replacement
+                                    target_in_row = True
 
                             if (target_in_row == True):
                                 print("\033[1m\033[91mTarget string not found\033[0m")
+                                
 
             if (target_in_wb == False):
                 print("\033[1m\033[91mTarget string not found\033[0m")
 
             print(
-                "\033[1m\033[96mSaving:\033[0m \033[1m\033[93m{}\033[0m".format(file))
+                "\033[1m\033[96mSaving:\033[0m \033[1m\033[93m{}\033[0m at \033[1m\033[96m{}\033[0m\n".format(file, datetime.now()))
             wb.save(file)
 
-print("\033[1m\033[96mDone\033[0m")
+print("\033[95m[\033[0m\033[96m*\033[0m\033[95m]\033[0m \033[1m\033[96mDone\033[0m")
