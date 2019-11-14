@@ -8,8 +8,12 @@ root = tk.Tk()
 root.configure(background="black")
 root.geometry("400x300")
 root.title("Silver Streak Aluminum Boats")
+<<<<<<< HEAD
 root.iconbitmap(
     r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
+=======
+root.iconbitmap(r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
+>>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 
 title = tk.Label(root, text="Silver Streak Aluminum Boats")
 title.pack()
@@ -23,6 +27,23 @@ part_number.pack()
 root.mainloop()
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 # DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 # extentions = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
@@ -60,7 +81,11 @@ root.mainloop()
 #                                 target, target_replacement, ws._current_row))
 #                             cell.value = target_replacement
 #                             target_in_wb = True
+<<<<<<< HEAD
 #                             for cell in row:
+=======
+#                             for cell in row: 
+>>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 #                                 target_in_row = False
 #                                 #print(cell.value)
 #                                 if (cell.value == supplier):
@@ -93,7 +118,11 @@ root.mainloop()
 
 #                             if (target_in_row == True):
 #                                 print("\033[1m\033[91mTarget string not found\033[0m")
+<<<<<<< HEAD
 
+=======
+                                
+>>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 
 #             if (target_in_wb == False):
 #                 print("\033[1m\033[91mTarget string not found\033[0m")
@@ -102,4 +131,8 @@ root.mainloop()
 #                 "\033[1m\033[96mSaving:\033[0m \033[1m\033[93m{}\033[0m at \033[1m\033[96m{}\033[0m\n".format(file, datetime.now()))
 #             wb.save(file)
 
+<<<<<<< HEAD
 # print("\033[95m[\033[0m\033[96m*\033[0m\033[95m]\033[0m \033[1m\033[96mDone\033[0m")
+=======
+# print("\033[95m[\033[0m\033[96m*\033[0m\033[95m]\033[0m \033[1m\033[96mDone\033[0m")
+>>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
