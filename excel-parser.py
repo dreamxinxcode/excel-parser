@@ -3,17 +3,15 @@ import os
 from datetime import datetime
 import tkinter as tk
 
+
 root = tk.Tk()
 
 root.configure(background="black")
-root.geometry("400x300")
+root.geometry("600x400")
+root.resizable(0, 0)
 root.title("Silver Streak Aluminum Boats")
-<<<<<<< HEAD
-root.iconbitmap(
-    r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
-=======
-root.iconbitmap(r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
->>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
+# root.iconbitmap(
+#     r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
 
 title = tk.Label(root, text="Silver Streak Aluminum Boats")
 title.pack()
@@ -24,26 +22,12 @@ part_number_label.pack()
 part_number = tk.Entry(bd=5)
 part_number.pack()
 
+files_box = tk.Text(background="white", fg="black", cursor="man")
+files_box.pack()
+files_box.insert(tk.END, os.listdir())
+
 root.mainloop()
 
-
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 # DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 # extentions = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
@@ -72,6 +56,10 @@ root.mainloop()
 #             wb = openpyxl.load_workbook(path, data_only=True)
 #             ws = wb.active
 #             target_in_wb = False
+#             supplier_in_row = False
+#             description_in_row = False
+#             price_in_row = False
+#             quantity_in_row = False
 #             for ws in wb.worksheets:
 #                 for row in ws.iter_rows():
 #                     for cell in row:
@@ -81,58 +69,62 @@ root.mainloop()
 #                                 target, target_replacement, ws._current_row))
 #                             cell.value = target_replacement
 #                             target_in_wb = True
-<<<<<<< HEAD
 #                             for cell in row:
-=======
-#                             for cell in row: 
->>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
 #                                 target_in_row = False
-#                                 #print(cell.value)
+#                                 # print(cell.value)
 #                                 if (cell.value == supplier):
-#                                     print("\033[1m\033[92mSUPPLIER STRING FOUND\033[0m")
+#                                     print(
+#                                         "\033[1m\033[92mSUPPLIER STRING FOUND\033[0m")
 #                                     print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
 #                                         supplier, supplier_replacement, ws._current_row))
 #                                     cell.value = supplier_replacement
-#                                     target_in_row = True
+#                                     supplier_in_row = True
 
 #                                 if (cell.value == description):
-#                                     print("\033[1m\033[92mDESCRIPTION STRING FOUND\033[0m")
+#                                     print(
+#                                         "\033[1m\033[92mDESCRIPTION STRING FOUND\033[0m")
 #                                     print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
 #                                         description, description_replacement, ws._current_row))
 #                                     cell.value = description_replacement
-#                                     target_in_row = True
+#                                     description_in_row = True
 
 #                                 if (cell.value == price):
-#                                     print("\033[1m\033[92mPRICE STRING FOUND\033[0m")
+#                                     print(
+#                                         "\033[1m\033[92mPRICE STRING FOUND\033[0m")
 #                                     print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
 #                                         price, price_replacement, ws._current_row))
 #                                     cell.value = price_replacement
-#                                     target_in_row = True
+#                                     price_in_row = True
 
 #                                 if (cell.value == quantity):
-#                                     print("\033[1m\033[92mQUANTITY STRING FOUND\033[0m")
+#                                     print(
+#                                         "\033[1m\033[92mQUANTITY STRING FOUND\033[0m")
 #                                     print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
 #                                         quantity, quantity_replacement, ws._current_row))
 #                                     cell.value = quantity_replacement
-#                                     target_in_row = True
+#                                     quantity_in_row = True
 
-#                             if (target_in_row == True):
-#                                 print("\033[1m\033[91mTarget string not found\033[0m")
-<<<<<<< HEAD
-
-=======
-                                
->>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
+#                         if (target_in_row == False):
+#                             print(
+#                                 "\033[1m\033[91mTarget string not found\033[0m")
+#                         if (supplier_in_row == False):
+#                             print(
+#                                 "\033[1m\033[91mSupplier string not found\033[0m")
+#                         if (description_in_row == False):
+#                             print(
+#                                 "\033[1m\033[91mDescription string not found\033[0m")
+#                         if (price_in_row == False):
+#                             print(
+#                                 "\033[1m\033[91mPrice string not found\033[0m")
+#                         if (quantity_in_row == False):
+#                             print(
+#                                 "\033[1m\033[91mQuantity string not found\033[0m")
 
 #             if (target_in_wb == False):
-#                 print("\033[1m\033[91mTarget string not found\033[0m")
+#                 print("\033[1m\033[91mPart not found\033[0m")
 
 #             print(
 #                 "\033[1m\033[96mSaving:\033[0m \033[1m\033[93m{}\033[0m at \033[1m\033[96m{}\033[0m\n".format(file, datetime.now()))
 #             wb.save(file)
 
-<<<<<<< HEAD
 # print("\033[95m[\033[0m\033[96m*\033[0m\033[95m]\033[0m \033[1m\033[96mDone\033[0m")
-=======
-# print("\033[95m[\033[0m\033[96m*\033[0m\033[95m]\033[0m \033[1m\033[96mDone\033[0m")
->>>>>>> 91053af621c28a0348a9e73482d756429359ac2c
