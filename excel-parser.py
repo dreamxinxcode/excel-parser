@@ -1,33 +1,16 @@
 import openpyxl
 import os
 from datetime import datetime
-import tkinter as tk
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
 
-
-root = tk.Tk()
-
-root.configure(background="black")
-root.geometry("600x400")
-root.resizable(0, 0)
-root.title("Silver Streak Aluminum Boats")
-# root.iconbitmap(
-#     r'C:\Users\Design\Desktop\SILVER STREAK ALUMINUM BOATS - all caps 2016 - white - no bkgd.png')
-
-title = tk.Label(root, text="Silver Streak Aluminum Boats")
-title.pack()
-
-part_number_label = tk.Label(root, text="Part Number")
-part_number_label.pack()
-
-part_number = tk.Entry(bd=5)
-part_number.pack()
-
-files_box = tk.Text(background="white", fg="black", cursor="man")
-files_box.pack()
-files_box.insert(tk.END, os.listdir())
-
-root.mainloop()
-
+app = QApplication([])
+window = QWidget()
+layout = QVBoxLayout()
+layout.addWidget(QPushButton('Top'))
+layout.addWidget(QPushButton('Bottom'))
+window.setLayout(layout)
+window.show()
+app.exec_()
 # DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 # extentions = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
