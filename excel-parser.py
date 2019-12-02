@@ -4,6 +4,7 @@ from datetime import datetime
 
 
 if(__name__ == '__main__'):
+
     DIRECTORY = os.path.dirname(os.path.realpath(__file__))
     EXTENTIONS = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
@@ -39,6 +40,58 @@ if(__name__ == '__main__'):
                         description_in_row = False
                         price_in_row = False
                         quantity_in_row = False
+                        
+                        def check_price():
+                            if (PRICE == "" and PRICE_REPLACEMENT == ""):
+                                print("Skipping price as NULL")
+                                pass
+                            elif (cell.value == PRICE):
+                                print(
+                                    "\033[1m\033[92mPRICE STRING FOUND\033[0m")
+                                print("\033[1m\033[96mFound\033[0m \033[1m\033[93m{0}\033[0m".format(
+                                    PRICE))
+                                price_in_row = True
+                                return price_in_row
+
+
+                        def check_supplier():        
+                            if (SUPPLIER  == "" and SUPPLIER_REPLACEMENT == ""):
+                                pass
+                            elif (cell.value == SUPPLIER):
+                                print(
+                                    "\033[1m\033[92mSUPPLIER STRING FOUND\033[0m")
+                                print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                    SUPPLIER, SUPPLIER_REPLACEMENT, ws._current_row))
+                                cell.value = SUPPLIER_REPLACEMENT
+                                supplier_in_row = True
+                                return supplier_in_row
+
+
+                        def check_description():
+                            if (DESCRIPTION == "" and DESCRIPTION_REPLACEMENT == ""):
+                                pass
+                            elif (cell.value == DESCRIPTION):
+                                print(
+                                    "\033[1m\033[92mDESCRIPTION STRING FOUND\033[0m")
+                                print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                    DESCRIPTION, DESCRIPTION_REPLACEMENT, ws._current_row))
+                                cell.value = DESCRIPTION_REPLACEMENT
+                                description_in_row = True
+                                return description_in_row
+
+
+                        def check_quantity():
+                            if (QUANTITY == "" and QUANTITY_REPLACEMENT == ""):
+                                pass
+                            elif (cell.value == QUANTITY):
+                                print(
+                                    "\033[1m\033[92mQUANTITY STRING FOUND\033[0m")
+                                print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
+                                    QUANTITY, QUANTITY_REPLACEMENT, ws._current_row))
+                                cell.value = QUANTITY_REPLACEMENT
+                                quantity_in_row = True
+                                return quantity_in_row
+                                
                         for cell in row:
                             if (cell.value == TARGET):
                                 print("\033[1m\033[92mPART STRING FOUND\033[0m")
@@ -48,45 +101,11 @@ if(__name__ == '__main__'):
                                 target_in_wb = True
 
                                 for cell in row:
-                                    # print(cell.value)
-                                    if (cell.value == PRICE):
-                                        print(
-                                            "\033[1m\033[92mPRICE STRING FOUND\033[0m")
-                                        print("\033[1m\033[96mFound\033[0m \033[1m\033[93m{0}\033[0m".format(
-                                            PRICE))
-                                        price_in_row = True
 
-                                    if (cell.value == SUPPLIER):
-                                        print(
-                                            "\033[1m\033[92mSUPPLIER STRING FOUND\033[0m")
-                                        print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                            SUPPLIER, SUPPLIER_REPLACEMENT, ws._current_row))
-                                        cell.value = SUPPLIER_REPLACEMENT
-                                        supplier_in_row = True
-
-                                    if (cell.value == DESCRIPTION):
-                                        print(
-                                            "\033[1m\033[92mDESCRIPTION STRING FOUND\033[0m")
-                                        print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                            DESCRIPTION, DESCRIPTION_REPLACEMENT, ws._current_row))
-                                        cell.value = DESCRIPTION_REPLACEMENT
-                                        description_in_row = True
-
-                                    if (cell.value == PRICE):
-                                        print(
-                                            "\033[1m\033[92mPRICE STRING FOUND\033[0m")
-                                        print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                            PRICE, PRICE_REPLACEMENT, ws._current_row))
-                                        cell.value = PRICE_REPLACEMENT
-                                        price_in_row = True
-
-                                    if (cell.value == QUANTITY):
-                                        print(
-                                            "\033[1m\033[92mQUANTITY STRING FOUND\033[0m")
-                                        print("\033[1m\033[96mReplacing\033[0m \033[1m\033[93m{0}\033[0m with \033[1m\033[93m{1}\033[0m on row \033[1m\033[93m{2}\033[0m".format(
-                                            QUANTITY, QUANTITY_REPLACEMENT, ws._current_row))
-                                        cell.value = QUANTITY_REPLACEMENT
-                                        quantity_in_row = True
+                                    check_quantity()
+                                    check_description()
+                                    check_supplier()
+                                    check_price()
 
                                 if (target_in_row == False):
                                     print(
