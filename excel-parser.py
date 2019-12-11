@@ -15,20 +15,20 @@ from datetime import datetime
 DIRECTORY = os.path.dirname(os.path.realpath(__file__))
 extentions = (".xlsx", ".xlsm", ".xltx", ".xltm")
 
-target = input("\033[1m\033[96mPart number: \033[0m")
-target_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+target = input("\033[1m\033[96mPart number: \033[0m").strip()
+target_replacement = input("\033[1m\033[96mReplace with: \033[0m").strip()
 
-supplier = input("\033[1m\033[96mSupplier: \033[0m")
-supplier_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+supplier = input("\033[1m\033[96mSupplier: \033[0m").strip()
+supplier_replacement = input("\033[1m\033[96mReplace with: \033[0m").strip()
 
-description = input("\033[1m\033[96mDescription: \033[0m")
-description_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+description = input("\033[1m\033[96mDescription: \033[0m").strip()
+description_replacement = input("\033[1m\033[96mReplace with: \033[0m").strip()
 
-price = input("\033[1m\033[96mPrice: \033[0m")
-price_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+price = input("\033[1m\033[96mPrice: \033[0m").strip()
+price_replacement = input("\033[1m\033[96mReplace with: \033[0m").strip()
 
-quantity = input("\033[1m\033[96mQuantity: \033[0m")
-quantity_replacement = input("\033[1m\033[96mReplace with: \033[0m")
+quantity = input("\033[1m\033[96mQuantity: \033[0m").strip()
+quantity_replacement = input("\033[1m\033[96mReplace with: \033[0m").strip()
 
 
 for (root, dirs, files) in os.walk(DIRECTORY):
@@ -89,21 +89,21 @@ for (root, dirs, files) in os.walk(DIRECTORY):
                                     cell.value = quantity_replacement
                                     quantity_in_row = True
 
-                    if (target_in_row == False):
-                        print(
-                            "\033[1m\033[91mTarget string not found\033[0m")
-                    if (supplier_in_row == False):
-                        print(
-                            "\033[1m\033[91mSupplier string not found\033[0m")
-                    if (description_in_row == False):
-                        print(
-                            "\033[1m\033[91mDescription string not found\033[0m")
-                    if (price_in_row == False):
-                        print(
-                            "\033[1m\033[91mPrice string not found\033[0m")
-                    if (quantity_in_row == False):
-                        print(
-                            "\033[1m\033[91mQuantity string not found\033[0m")
+                if (target_in_row == False):
+                    print(
+                        "\033[1m\033[91mTarget string not found\033[0m")
+                if (supplier_in_row == False):
+                    print(
+                        "\033[1m\033[91mSupplier string not found\033[0m")
+                if (description_in_row == False):
+                    print(
+                        "\033[1m\033[91mDescription string not found\033[0m")
+                if (price_in_row == False):
+                    print(
+                        "\033[1m\033[91mPrice string not found\033[0m")
+                if (quantity_in_row == False):
+                    print(
+                        "\033[1m\033[91mQuantity string not found\033[0m")
 
             if (target_in_wb == False):
                 print("\033[1m\033[91mPart not found\033[0m")
