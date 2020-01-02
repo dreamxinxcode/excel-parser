@@ -3,10 +3,6 @@
 
 # But not these files
 !.gitignore
-!excel-parser.py
-<<<<<<< HEAD
+!updater.py
 !prices.py
-=======
-!requirements.txt
-!venv
->>>>>>> ece742b0ba15c57cbb693c852fc97edad3719d07
+!template.py
